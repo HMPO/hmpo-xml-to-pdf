@@ -12,22 +12,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/HughePaul/xml-to-pdf.git"
+    "url": "https://github.com/HMPO/xml-to-pdf.git"
   },
-  "author": "Paul Winkler",
+  "author": "HMPO",
   "license": "MIT",
   "engines": {
-    "node": ">=8"
+    "node": ">=20"
   },
   "bugs": {
-    "url": "https://github.com/HughePaul/xml-to-pdf/issues"
+    "url": "https://github.com/HMPO/xml-to-pdf/issues"
   },
-  "homepage": "https://github.com/HughePaul/xml-to-pdf",
+  "homepage": "https://github.com/HMPO/xml-to-pdf",
   "dependencies": {
     "concat-stream": "^2.0.0",
     "debug": "^4.3.4",
     "deep-clone-merge": "^1.5.5",
-    "pdfkit": "^0.13.0",
+    "pdfkit": "^0.16.0",
     "underscore": "^1.13.6",
     "xml2js": "^0.5.0"
   },

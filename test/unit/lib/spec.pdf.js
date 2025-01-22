@@ -1,18 +1,10 @@
 'use strict';
-
 const PDF = require('../../../lib/pdf');
 
 describe('pdf', () => {
     let obj, options, pdf;
 
     beforeEach(() => {
-        // <pdf>
-        // <head><title>A Title</title><colors bright="#EEA"></head>
-        // <head/>
-        // <page><div><hr thickness="4"/><p color="bright">some text</p></div></page>
-        // <page>page 2</page>
-        // </pdf>
-
         obj = {
             head: [{
                 children: [
@@ -616,4 +608,72 @@ describe('pdf', () => {
 
     });
 
+    describe('lang', () => {
+        let pdf, objOverride;
+
+        beforeEach(() => {
+            objOverride = structuredClone(obj);
+            pdf = new PDF(objOverride, options);
+        });
+
+        it('should default pdf lang to en-GB, if not specified', ()=> {
+            pdf.config.document.lang.should.equal('en-GB');
+        });
+
+        it('should override pdf lang if specified', ()=> {
+            Object.assign(objOverride.head[0], {
+                children: [{
+                    '#name': 'document',
+                    options: {lang: 'test'}
+                }]
+            });
+
+            pdf = new PDF(objOverride, options);
+            pdf.config.document.lang.should.equal('test');
+        });
+    });
+
+    describe('pdfVersion', () => {
+        let pdf;
+
+        beforeEach(() => {
+            pdf = new PDF(obj, options);
+        });
+
+        it('should use pdf version 1.7', ()=> {
+            pdf.config.document.pdfVersion.should.equal('1.7');
+        });
+    });
+
+    describe('imgTag', () => {
+        let pdf, imgOptions;
+
+        beforeEach(() => {
+            pdf = new PDF(obj, options);
+            sinon.stub(PDF.prototype, 'getOptionalPercentageValue');
+            imgOptions = {
+                pos: {
+                    width: '100',
+                },
+                height: '100',
+                scale: '100'
+            };
+        });
+
+        afterEach(() => {
+            PDF.prototype.getOptionalPercentageValue.restore();
+        });
+
+        it('should throw error if filePath is missing', ()=> {
+            Object.assign(pdf, {
+                state: {
+                    doc: {
+                        struct: sinon.stub(),
+                        addStructure: sinon.stub()
+                    }
+                }
+            });
+            expect(() => { pdf.imgTag(pdf.state, imgOptions); } ).to.throw('Invalid <img> src attribute');
+        });
+    });
 });
