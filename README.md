@@ -69,7 +69,6 @@ The document must be wrapped in `<pdf></pdf>` tags
     + `<colors>` Color aliases, eg `<colors darkred="#880000"/>`
     + `<fonts>` Font aliases, eg `<fonts comic="Comic Sans Regular"/>`
     + `<filename>` Set document filename
-    + `<title>` Set document title
     + `<styles>` Add or change page tag style definintions, eg: `<styles><redtext extends="span" color="red"/></styles>`
         * Elements attributes can include:
             - `extends="String"` Style definition to extend
@@ -117,5 +116,6 @@ The document must be wrapped in `<pdf></pdf>` tags
             - `src="String"` Source of the image to draw relative to the template file
             - `scale="Number"` Size of image relative to its original
             - `fit="Boolean"` Fit image within the width and height without chaning its aspect ratio
+            - `alt="String"` Add alt text to an image to improve accessibility
         * `<a>` Create a web link for the contained text.
             - `href="String"` The link to go to when clicked. If no `href` is specified an href is created by adding `https://` to the beginning of the text
