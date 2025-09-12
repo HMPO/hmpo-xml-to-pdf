@@ -1,6 +1,6 @@
 {
   "name": "hmpo-xml-to-pdf",
-  "version": "1.7.1",
+  "version": "1.7.2",
   "description": "PDF generation from XML to a stream, buffer, or file",
   "main": "lib/generate.js",
   "scripts": {
