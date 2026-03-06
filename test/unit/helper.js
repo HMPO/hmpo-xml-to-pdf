@@ -3,7 +3,7 @@
 global.sinon = require('sinon');
 const chai = require('chai');
 chai.should();
-chai.use(require('sinon-chai'));
+chai.use(require('sinon-chai').default);
 global.expect = chai.expect;
 // global.proxyquire = require('proxyquire');
 
