@@ -431,8 +431,9 @@ describe('pdf', () => {
         });
 
         it('should add heading structure roles to heading tags', () => {
-            let options = pdf.getTagOptions('h3');
-            options.structure.should.equal('H3');
+            pdf.getTagOptions('h3').structure.should.equal('H3');
+            pdf.getTagOptions('h5').structure.should.equal('H5');
+            pdf.getTagOptions('h6').structure.should.equal('H6');
         });
     });
 

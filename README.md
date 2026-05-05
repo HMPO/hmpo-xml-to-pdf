@@ -1,4 +1,4 @@
-# templated-pdf
+# hmpo-xml-to-pdf
 PDF generation using an XML source. Can generate a file, buffer or stream.
 
 ## Usage as a function
@@ -119,7 +119,3 @@ The document must be wrapped in `<pdf></pdf>` tags
             - `alt="String"` Add alt text to an image to improve accessibility
         * `<a>` Create a web link for the contained text.
             - `href="String"` The link to go to when clicked. If no `href` is specified an href is created by adding `https://` to the beginning of the text
-
-## Replaces repo xml-to-pdf
-
-Old repo for this service can be found here: https://github.com/HMPO/xml-to-pdf
